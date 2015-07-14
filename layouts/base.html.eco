@@ -5,9 +5,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Site Title</title>
-    <link rel="stylesheet" href="/css/foundation.css" />
+    <title><%-@getPreparedTitle()%></title>
+	<meta name="description" content="<%=@getPreparedDescription()%>" />
+    <meta name="keywords" content="<%=@getPreparedKeywords()%>" />
+	<%-@getBlock('meta').toHTML() %>
+	
+	
+	<link rel="stylesheet" href="/css/foundation.css" />
     <link rel="stylesheet" href="/styles/footer-bottom.css" />
+	<%-@getBlock('styles').add(@site.styles).add(@document.styles).toHTML() %>
     <script src="/js/modernizr.js"></script>
     <style>
         .top-container {
@@ -22,9 +28,9 @@
 
     <script src="/js/jquery.js"></script>
     <script src="/js/foundation.min.js"></script>
-    <script>
-        $(document).foundation();
-    </script>
+	<script>$(document).foundation();</script>
+	<%-@getBlock('scripts').add(@site.scripts,{defer:false}).add(@document.scripts,{defer:false}).toHTML() %>
+
 </body>
 
 </html>

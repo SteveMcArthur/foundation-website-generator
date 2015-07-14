@@ -2,6 +2,8 @@
 
 Node.js command line tool to generate website skeleton based on zurb foundation framework.
 
+It's purposely kept simple. All the templates are in plain html and you can easily replace them with you're own..
+
 The way I use this is as a personal NPM package using the command "NPM link". This will create a symbolic link in the NPM node_modules pointing to wherever this project is located (assuming you have run the "NPM link" command in that folder). In the NPM global folder I create a "generate-website.cmd" (in the case of windows) with the following code in it:
 
 ```
