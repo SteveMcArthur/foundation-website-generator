@@ -4,8 +4,8 @@ var path = require('path');
 var eco = require('eco');
 
 var layoutDir = path.join(__dirname, 'layouts');
-var documentDir = path.join(__dirname, 'documents');
-var assetsDir = path.join(__dirname, 'vendors');
+var documentDir = path.join(__dirname, 'vendors', 'html');
+var assetsDir = path.join(__dirname, 'vendors', 'assets');
 //var outputDir = path.join(__dirname, 'output');
 var outputDir = process.cwd();
 var metaRegex = new RegExp(/^---\s*\n\r*[\s*\w+\s*:\s*.+\n\r*]+---/);
