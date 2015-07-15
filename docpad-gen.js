@@ -7,7 +7,7 @@ var child_process = require('child_process');
 var layoutDir = path.join(__dirname, 'layouts');
 var documentDir = path.join(__dirname, 'documents');
 
-var assetsDir = path.join(__dirname, 'assets');
+var assetsDir = path.join(__dirname, 'vendors');
 var srcDir = path.join(__dirname, 'src');
 var rootDir = path.join(__dirname, 'docpad-root');
 
