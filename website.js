@@ -11,6 +11,16 @@ var outputDir = process.cwd();
 var metaRegex = new RegExp(/^---\s*\n\r*[\s*\w+\s*:\s*.+\n\r*]+---/);
 var defaultLayout = 'default.html.eco';
 
+var site = {
+	scripts: [],
+	styles: []
+};
+
+var document = {
+	scripts: [],
+	styles: []
+};
+
 
 function extractMeta(tmpl) {
 	var idx = tmpl.indexOf('---', 3);
@@ -61,7 +71,20 @@ function renderFile(documentFile) {
 	var content = "";
 	for (var i = 0; i < templateList.length; i++) {
 		content = eco.render(templateList[i].tmpl, {
-			content: content
+			content: content,
+			site: site,
+			document: document,
+			getBlock: function () {
+				return {
+					add: function () {},
+					toHTML: function () {}
+				};
+			},
+			getPreparedTitle: function () {
+				return "My Website";
+			}
+
+
 		});
 	}
 
