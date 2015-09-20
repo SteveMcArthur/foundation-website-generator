@@ -54,14 +54,26 @@ function getTemplate(filePath) {
 	return data;
 }
 
+var blockObj = function () {
+	return {
+		add: function () {
+			return blockObj();
+		},
+		toHTML: function () {}
+	}
+};
+
 function renderFile(documentFile) {
+
 	var templateList = [];
 	var documentPath = path.join(documentDir, documentFile);
 	var data = getTemplate(documentPath);
+
 	if (!data.meta.layout) {
 		data.meta.layout = defaultLayout;
 	}
 	templateList.push(data);
+
 	while (data.meta && data.meta.layout) {
 		var layoutFile = path.join(layoutDir, data.meta.layout);
 		data = getTemplate(layoutFile);
@@ -69,24 +81,29 @@ function renderFile(documentFile) {
 	}
 
 	var content = "";
+
 	for (var i = 0; i < templateList.length; i++) {
 		content = eco.render(templateList[i].tmpl, {
 			content: content,
 			site: site,
 			document: document,
 			getBlock: function () {
-				return {
-					add: function () {},
-					toHTML: function () {}
-				};
+				return blockObj()
 			},
 			getPreparedTitle: function () {
 				return "My Website";
+			},
+			getPreparedDescription: function () {
+				return "Description";
+			},
+			getPreparedKeywords: function () {
+				return "keywords";
 			}
 
 
 		});
 	}
+
 
 	var file = path.join(outputDir, documentFile);
 	fs.writeFileSync(file, content, 'utf-8');

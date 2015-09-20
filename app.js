@@ -18,20 +18,26 @@ var questions = [
         }, {
             name: "3. Blog - blog layout with right sidebar",
             value: "blog"
+		}, {
+            name: "4. Sidebar - layout with left sidebar",
+            value: "sidebar"
+		}, {
+            name: "5. Grid",
+            value: "grid"
         }, {
-            name: "4. Orbit - Layout with large top slider",
+            name: "6. Orbit - Layout with large top slider",
             value: "orbit"
         }, {
-            name: "5. Landing - Banded landing page with contact panel and newsletter sign on",
+            name: "7. Landing - Banded landing page with contact panel and newsletter sign on",
             value: "landing"
         }, {
-            name: "6. Banner Theme - Foundation banner (dog) theme",
+            name: "8. Banner Theme - Foundation banner (dog) theme",
             value: "banner-theme"
         }, {
-            name: "7. Map - Google maps full page layout",
+            name: "9. Map - Google maps full page layout",
             value: "map"
         }, {
-            name: "8. All",
+            name: "10. All",
             value: "all"
       }]
   }
